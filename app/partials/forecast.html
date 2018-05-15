@@ -1,0 +1,45 @@
+<div class="container" ng-init="init()">
+    <!--<div class="weather-search">-->
+        <!--<div class="row">-->
+            <!--<div class="col-xs-12">-->
+                <!--<div>-->
+                    <!--<form class="form-inline" role="form">-->
+                        <!--<span class="btn-group" >-->
+                            <!--<button ng-repeat="item in exampleLocations" ng-click="setLocation(item)" type="submit" class="btn btn-default">{{item}}</button>-->
+                        <!--</span>-->
+                        <!--<span class="form-group {{hasState}}">-->
+                            <!--<label class="sr-only" for="location">City</label>-->
+                            <!--<input ng-model="location" type="text" class="form-control" id="location" placeholder="City">-->
+                        <!--</span>-->
+                        <!--<button ng-click="getForecastByLocation(location)" type="submit" class="btn btn-primary">Search!</button>-->
+                        <!--<span ng-show="message" class="alert"><span class="glyphicon glyphicon-arrow-left">&nbsp;</span>{{message}}</span>-->
+                    <!--</form>-->
+                <!--</div>-->
+            <!--</div>-->
+        <!--</div>-->
+    <!--</div>-->
+    <div class="weather-data" ng-show="true">
+        <div class="row">
+            <h2 class="page-header">Most Convenient Weather today</h2>
+            <div class="col-xs-12">
+                <div class="">
+                    <h3>
+                        {{mostConvenient.name | placeholder:'?'}}
+                        <small>Lon: {{mostConvenient.coord.lon | number:2}} Lat: {{mostConvenient.coord.lat | number:2}}</small>
+                    </h3>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-12">
+                <div weather-panel="forecast" show-entry="mostConvenient"></div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-4" ng-repeat="item in leadings" >
+                <div weather-panel="forecast" show-entry="item"></div>
+            </div>
+
+        </div>
+    </div>
+</div>
